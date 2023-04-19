@@ -1,0 +1,39 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  products: [Product]
+  product(id: ID): Product
+}
+
+type Mutation {
+  addProduct(product: ProductInput): Product
+  updateProduct(product: ProductInput): Product
+  deleteProduct(id: ID): Product
+}
+
+type Product {
+  id: ID
+  title: String
+  price: Float
+  description: String
+  category: String
+  image: String
+  rating: Rating
+}
+
+type Rating {
+  rate: Float
+  count: Int
+}
+
+input ProductInput {
+  id: ID
+  title: String
+  price: Float
+  description: String
+  category: String
+  image: String
+}
